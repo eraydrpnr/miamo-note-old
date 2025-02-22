@@ -1,0 +1,615 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98777,98776,98772,98773,98775,98770,98771,98769');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+* {
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+/* WebKit tabanlı tarayıcılar için scroll bar stilini tanımlar */
+::-webkit-scrollbar {
+    width: 1px; /* Scroll bar genişliği */
+    height: 0px; /* Scroll bar yüksekliği */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Kaydırma çubuğunun rengi */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    transition: background-color 0.3s ease; /* Hover geçiş efekti */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Hover sırasında kaydırma çubuğu rengi */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Scroll bar arka plan rengi */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+}
+
+::-webkit-scrollbar-corner {
+    background: #f1f1f1; /* Scroll bar köşesinin rengi */
+}
+
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+.alert {
+    display: none;
+    justify-content: center;
+    align-items: center; /* Center the content vertically */
+    position: fixed;
+    z-index: 1000; /* Increased z-index for better visibility */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background */
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-backdrop-filter: blur(12px); /* More pronounced blur effect */
+    backdrop-filter: blur(12px); /* More pronounced blur effect */
+}
+
+.alert-content {
+    background-color: #ffffff; /* Pure white background */
+    border-radius: 16px; /* Slightly larger border radius for a softer look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly more pronounced shadow */
+    
+    max-width: 80%;
+    width: 350px; /* Fixed width for a consistent appearance */
+    margin: 0 auto; /* Center horizontally */
+    text-align: center; /* Center text */
+    position: relative;
+}
+
+.alert-content h1 {
+    margin: 0 0 16px;
+    font-size: 18px; /* Slightly smaller font size */
+    font-weight: 500; /* Regular weight for a more subtle look */
+    color: #333; /* Darker text color for better readability */
+    padding: 12px;
+}
+
+.alert-content p {
+    margin: 0 0 16px;
+    font-size: 15px;
+    color: #666; /* Lighter text color */
+    line-height: 1.4;
+    padding: 12px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px; /* Space between buttons */
+    border-top: 1px #007bff solid;
+    
+}
+.buttons .border-alert{
+    border-right: #007aff 1px solid;
+}
+.buttons .accept,
+.buttons .cancel {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+     
+    cursor: pointer;
+    transition: background-color 0.3s ease , opacity 0.3s ease-in-out ;
+}
+
+.buttons .accept {
+    background-color: transparent;
+   color: #007aff;
+}
+
+.buttons .accept:hover,
+.buttons .accept:focus {
+    opacity: 0.5;
+}
+
+.buttons .cancel {
+    background-color: transparent;
+   color: #da0026;
+}
+
+.buttons .cancel:hover,
+.buttons .cancel:focus {
+    
+    opacity: 0.5;
+     
+}
+
+.topbar {
+    position: relative;
+    margin-inline: 240px ;
+    /* top: 0;
+    left: 300px;
+    right: 300px; */
+    background-color: #555;
+    padding: 15px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    color: #fff;
+    user-select: none;
+}
+
+.topbar .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar .content .notification .edit-btn {
+    color: #FFEB3B;
+    width: 40px; /* Buton boyutunu ayarlayın */
+    height: 40px; /* Buton boyutunu ayarlayın */
+    padding: 5px;
+    border-radius: 50%; /* Tam yuvarlak olması için %50 */
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.topbar .content .notification .edit-btn:hover {
+    background-color: #FFEB3B49;
+    color: #ffffff;
+    border-radius: 5rem;
+}
+
+
+.topbar .content .notification .del-btn {
+    color: #DA001E;
+    width: 40px; /* Buton boyutunu ayarlayın */
+    height: 40px; /* Buton boyutunu ayarlayın */
+    border-radius: 50%; /* Tam yuvarlak olması için %50 */
+    padding: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.topbar .content .notification .del-btn:hover {
+    background-color: #da002431;
+    color: #ffffff;
+    border-radius: 5rem;
+}
+
+.goto{
+    color: #FFEB3B;
+    width: 40px; /* Buton boyutunu ayarlayın */
+    height: 40px; /* Buton boyutunu ayarlayın */
+    border-radius: 50%; /* Tam yuvarlak olması için %50 */
+    padding: 5px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.goto:hover{
+background-color: #FFEB3B49;
+color: #ffffff;
+border-radius: 5rem;
+}
+
+#edit-form {
+    display: none;
+}
+
+
+/* Media queries for smaller screens */
+@media (max-width: 980px) {
+    .topbar {
+        /* left: 10px;
+        right: 10px; */
+        padding: 15px;
+        margin-inline: 10px ;
+    }
+
+    .topbar .logo img {
+        width: 1.5rem;
+    }
+
+    .topbar .logo h1 {
+        font-size: 12px;
+    }
+
+    .topbar .content {
+        align-items: center;
+    }
+
+    .notification-body {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        
+    }
+}
+
+.container {
+     
+    margin: 0 auto;
+    padding: 20px;
+    
+    border-radius: 20px;
+    padding-top: 5px;
+    
+  }
+  @media (max-width: 470px) {
+    .menu {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 99;
+        
+      }
+    .container {
+        max-width: 1200px;
+        margin: 5px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+}
+.title {
+    background-image: linear-gradient(
+        350deg,
+        hsl(51deg 100% 50%) 0%,
+        hsl(51deg 100% 52%) 13%,
+        hsl(51deg 100% 54%) 26%,
+        hsl(51deg 100% 55%) 37%,
+        hsl(51deg 100% 56%) 47%,
+        hsl(52deg 100% 57%) 57%,
+        hsl(52deg 100% 58%) 66%,
+        hsl(52deg 100% 59%) 74%,
+        hsl(53deg 100% 59%) 82%,
+        hsl(53deg 100% 60%) 89%,
+        hsl(53deg 100% 61%) 95%,
+        hsl(54deg 100% 62%) 100%
+      );
+    padding: 10px  20px;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    color: #000;
+    font-weight: 600;
+}
+
+
+
+.user {
+    position: fixed;
+    z-index: 99;
+    bottom: 20px; /* Kullanıcı kutusunun alttan uzaklığını azaltarak daha erişilebilir hale getirme */
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Daha hafif opaklık */
+    padding: 12px 20px; /* Padding'i azaltarak daha kompakt hale getirme */
+    border-radius: 30px;
+    -webkit-backdrop-filter: saturate(150%) blur(15px); /* Filtreyi hafifletme */
+    backdrop-filter: saturate(150%) blur(15px); /* Filtreyi hafifletme */
+    opacity: 0.1; /* Opaklığı artırma */
+    border: 1px solid #fff;
+    transition: opacity 0.5s ease-in-out, glow 0.3s ease-in-out; /* Dönüşüm ekleme */
+    transform: translateY(0); /* Animasyon için başlangıç pozisyonu */
+}
+
+.user:hover {
+    opacity: 1;
+    transform: translateY(-10px); /* Hover durumunda yukarı kaydırma */
+}
+
+.user a {
+    display: inline-block; /* Buton boyutunu daha iyi ayarlamak için inline-block */
+    padding: 10px 20px; /* Padding'i azaltarak daha kompakt hale getirme */
+    background-color: #3D73FF;
+    border-radius: 13px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Dönüşüm ekleme */
+}
+
+.user a:hover {
+    background-color: #2a5bce; /* Daha koyu bir renk için hover efekti */
+    transform: scale(1.05); /* Hover durumunda butonu büyütme */
+}
+
+.user .del {
+    background-color: #cf0000;
+}
+
+.user .del:hover {
+    background-color: #a70000; /* Koyu kırmızı hover rengi */
+}
+
+
+@keyframes opatick {
+    0%   { opacity: 0.1; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.1; }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+}
+
+textarea {
+    background-color: #181818;
+    color: #ccc;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 20px;
+    border: 1px solid #ccc; /* border ekleme */
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px; /* kenarları yuvarlama */
+    padding: 20px; /* iç boşluk ekleme */
+    width: 100%;
+    min-height: 80vh; /* genişlik ayarlama */
+    
+    box-sizing: border-box; /* kenar boşluklarını ve kenarlıkları hesaba katma */
+    resize: vertical;
+    line-height: 1.6;
+
+}
+
+input[type="submit"] {
+    padding: 10px 43px;
+    background-color: #3D73FF;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 13px;
+    transition: background-color 0.3s ease-in-out;
+    user-select: none;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3d60bb;
+}
+
+input[type="submit"]:focus {
+    outline: none; /* odaklandığında kenarlık yok */
+    box-shadow: 0 0 0 3px rgba(100, 100, 100, 0.5); /* odaklanma görünümü için gölge */
+}
+
+form button {
+    padding: 10px 43px;
+    background-color: #ac0c0c;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 13px;
+    transition: background-color 0.3s ease-in-out;
+    user-select: none;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #410101;
+}
+
+form button:focus {
+    outline: none; /* odaklandığında kenarlık yok */
+    box-shadow: 0 0 0 3px rgba(100, 100, 100, 0.5); /* odaklanma görünümü için gölge */
+}
+
+.button {
+    padding: 12px 24px;
+    background-color: #3D73FF;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 13px;
+    transition: background-color 0.3s ease-in-out;
+    user-select: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #3d60bb;
+}
+
+.button:focus {
+    outline: none; /* odaklandığında kenarlık yok */
+    box-shadow: 0 0 0 3px rgba(100, 100, 100, 0.5); /* odaklanma görünümü için gölge */
+}
+/* Medya sorguları */
+@media (max-width: 768px) {
+    .title {
+        font-size: 18px; /* Başlık boyutunu küçült */
+    }
+
+    .body {
+        padding: 20px; /* İç boşluğu küçült */
+        max-width: 100%; /* Genişliği tam ekran yap */
+        font-size: 16px;
+    }
+
+    .user {
+        padding: 12px 20px; /* Kullanıcı kutusu padding'ini küçült */
+        right: 10px; /* Sağ boşluğu küçült */
+    }
+
+    textarea {
+        font-size: 20px; /* Font boyutunu küçült */
+        padding: 6px; /* İç boşluğu küçült */
+    }
+
+    input[type="submit"], form button, .button {
+        padding: 8px 20px; /* Buton padding'ini küçült */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 16px; /* Başlık boyutunu daha da küçült */
+    }
+
+    .user {
+        padding: 10px 15px; /* Kullanıcı kutusu padding'ini daha da küçült */
+        right: 5px; /* Sağ boşluğu daha da küçült */
+    }
+
+    textarea {
+        font-size: 20px;; /* Font boyutunu daha da küçült */
+        padding: 20px; /* İç boşluğu daha da küçült */
+        border-bottom-left-radius: 19px;
+        border-bottom-right-radius: 19px; /* kenarları yuvarlama */
+    }
+
+    input[type="submit"], form button, .button {
+        padding: 15px 4rem ; /* Buton padding'ini daha da küçült */
+    }
+}
+.body {
+    border: 1px #fff solid;
+    border-top: transparent;
+    min-height: 85vh;
+    padding: 20px;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    background-color: #2c2c2e;
+   
+    line-height: 1.6;
+}
+/* Genel Markdown stili */
+
+
+/* Başlık stilleri */
+.body h1, .body h2, .body h3, .body h4, .body h5, .body h6 {
+    font-family: 'SF Pro Display', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.body h1 {
+    font-size: 3rem;
+    color: #ffffff; /* Beyaz */
+}
+
+.body h2 {
+    font-size: 2.5rem;
+    color: #f2f2f2; /* Çok açık beyaz */
+}
+
+.body h3 {
+    font-size: 2rem;
+    color: #e6e6e6; /* Açık beyaz */
+}
+
+.body h4 {
+    font-size: 1.75rem;
+    color: #d9d9d9; /* Hafif beyaz */
+}
+
+.body h5 {
+    font-size: 1.5rem;
+    color: #cccccc; /* Yumuşak beyaz */
+}
+
+.body h6 {
+    font-size: 1.25rem;
+    color: #bfbfbf; /* Daha koyu beyaz */
+}
+
+
+/* Paragraflar */
+.body p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Listeler */
+.body ul, .body ol {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.body li {
+    margin-bottom: 10px;
+}
+
+/* Kod blokları */
+.body pre {
+    background-color: #2e3440;
+    color: #d8dee9;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.body code {
+    background-color: #3b4252;
+    color: #88c0d0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* Linkler */
+.body a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.body a:hover {
+    text-decoration: underline;
+}
+
+/* Resimler */
+.body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Tablo */
+.body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.body th, .body td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.body th {
+    background-color: #ffb71b;
+    color: #222;
+}
+
+/* Blockquote stili */
+.body blockquote {
+    font-style: italic;
+    border-left: 5px solid #ffb71b;
+    margin: 1.5em 10px;
+    padding: 0.5em 15px;
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+/* Horizontal Rule (hr) için stil */
+.body hr {
+    border: none;
+    height: 2px;
+    background-color: #ccc;
+    margin: 25px 0;
+}

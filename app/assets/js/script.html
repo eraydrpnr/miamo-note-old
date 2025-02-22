@@ -1,0 +1,306 @@
+<script>
+        function togglePasswordVisibility(inputId, iconElement) {
+            const passwordField = document.getElementById(inputId);
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            // Toggle eye icon (show/hide)
+            const eyeIcon = iconElement.querySelector('i');
+            eyeIcon.classList.toggle('bi-eye');
+            eyeIcon.classList.toggle('bi-eye-slash');
+        }
+
+        document.querySelectorAll('#password, #password_confirm').forEach(input => {
+            input.addEventListener('input', function() {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('password_confirm').value;
+                let errors = [];
+                
+                // Şifre güvenlik kontrolleri
+                if (!/[A-Z]/.test(password)) {
+                    errors.push("The password must include at least one uppercase letter.");
+                }
+                if (!/[0-9]/.test(password)) {
+                    errors.push("The password must include at least one number.");
+                }
+                if (!/[\W_]/.test(password)) {
+                    errors.push("The password must include at least one special character.");
+                }
+                if (/123|456|789/.test(password)) {
+                    errors.push("The password cannot contain sequential numbers.");
+                }
+
+                // Şifre eşleşmesi kontrolü
+                if (password !== confirmPassword) {
+                    errors.push("The passwords don't match.");
+                }
+
+                // Hata mesajlarını göster
+                document.querySelectorAll('.form ul').forEach(ul => ul.remove());
+                if (errors.length > 0) {
+                    const ul = document.createElement('ul');
+                    ul.style.color = 'red';
+                    errors.forEach(error => {
+                        const li = document.createElement('li');
+                        li.textContent = error;
+                        ul.appendChild(li);
+                    });
+                    document.querySelector('.form').appendChild(ul);
+                }
+            });
+        });
+    </script>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+const questions = document.querySelectorAll('.faq-question');
+
+questions.forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+
+        // Toggle answer visibility
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+        } else {
+            // Hide all other answers
+            document.querySelectorAll('.faq-answer').forEach(item => item.style.display = 'none');
+            answer.style.display = 'block';
+        }
+    });
+});
+});
+
+</script>
+<script>
+ let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+let i;
+let slides = document.getElementsByClassName("mySlides");
+let dots = document.getElementsByClassName("dot");
+if (n > slides.length) {slideIndex = 1}    
+if (n < 1) {slideIndex = slides.length}
+for (i = 0; i < slides.length; i++) {
+slides[i].style.display = "none";  
+}
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace(" active", "");
+}
+slides[slideIndex-1].style.display = "block";  
+dots[slideIndex-1].className += " active";
+}
+
+// Optional: Auto slideshow (uncomment if needed)
+let autoSlide = setInterval(() => plusSlides(1), 5000);
+
+  </script>
+  <script>
+    let scrollPosition = 0;
+    
+    function confirmDeletion(noteId) {
+        // Save the current scroll position
+        scrollPosition = window.pageYOffset;
+    
+        // Show the alert
+        var alertElement = document.querySelector('.alert');
+        alertElement.style.display = 'flex';
+    
+        // Disable scrolling and prevent body from moving
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+    
+        // Handle the button clicks
+        document.querySelector('.alert .accept').onclick = function() {
+            // Redirect to the delete URL
+            window.location.href = 'delete-note?id=' + noteId;
+        };
+    
+        document.querySelector('.alert .cancel').onclick = function() {
+            // Hide the alert
+            alertElement.style.display = 'none';
+    
+            // Restore scrolling
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, scrollPosition);
+        };
+    }
+    
+    // Hide the alert initially and ensure scrolling is enabled
+    document.addEventListener('DOMContentLoaded', function() {
+        var alertElement = document.querySelector('.alert');
+        alertElement.style.display = 'none';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+    });
+    </script>
+    <script>document.getElementById('notification-trigger').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById('notification-body').style.display = 'block'; // Show notification body
+    });
+    
+    document.getElementById('close-notification').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById('notification-body').style.display = 'none'; // Hide notification body
+    });
+    </script>
+        <script>
+            // Tarih ve saati almak için Date nesnesi oluşturulur
+            const now = new Date();
+    
+            // Tarihi almak için gerekli metodlar
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Aylar 0'dan başlar, bu yüzden +1 ekliyoruz
+            const year = now.getFullYear();
+    
+            // Saat, dakika ve saniyeyi almak için gerekli metodlar
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+            // Tarih ve saati düzgün bir şekilde formatlamak
+            const formattedDate = `${day}.${month}.${year}`;
+            const formattedTime = `${hours}:${minutes}`;
+    
+            // Tarih ve saat bilgisini birleştir
+            const formattedDateTime = `${formattedDate} ~ ${formattedTime}`;
+    
+            // Elde edilen tarih ve saat bilgilerini input elemanına yazdırmak
+            document.getElementById('datetime-input').value = formattedDateTime;
+    </script>
+
+<script type="text/javascript">
+  
+    document.querySelector(".sidebar-toggle-btn").addEventListener("click", () => {
+        document.querySelector(".sidebar").classList.toggle("active");
+    });
+  
+  </script>
+  <script>
+  window.addEventListener('load', function() {
+      const loaderWrapper = document.getElementById('loader-wrapper');
+      const content = document.getElementById('content');
+  
+      // İçerik yüklendiğinde loader'ı gizle ve içeriği göster
+      setTimeout(() => {
+          loaderWrapper.style.display = 'none';
+          content.style.display = 'block';
+      }, 1526); // 2 saniye bekle
+  });
+  </script>
+ <script>document.getElementById('notification-trigger').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById('notification-body').style.display = 'block'; // Show notification body
+});
+
+document.getElementById('close-notification').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById('notification-body').style.display = 'none'; // Hide notification body
+});
+</script>
+<script>
+window.addEventListener('scroll', function() {
+    const mobileMenu = document.querySelector('.mobile-container');
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.innerHeight + window.scrollY;
+
+    if (scrollHeight - scrollPosition <= 10) {
+        // If the user is at the bottom of the page, hide the menu with animation
+        mobileMenu.classList.add('hidden');
+    } else {
+        // Otherwise, show the menu with animation
+        mobileMenu.classList.remove('hidden');
+    }
+});
+
+
+
+</script>
+
+<script>
+// script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    const banner = document.getElementById('cookieBanner');
+    const acceptButton = document.getElementById('acceptCookie');
+
+    // Çerez ayarlama fonksiyonu
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    // Çerez alma fonksiyonu
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Çerez kabul edilmiş mi kontrol et
+    if (!getCookie('cookieAccepted')) {
+        // Kabul edilmediyse banner'ı göster
+        banner.style.display = 'block';
+    }
+
+    acceptButton.addEventListener('click', function () {
+        // Çerezi ayarla ve 30 gün boyunca sakla
+        setCookie('cookieAccepted', 'true', 30);
+
+        // Banner'ı gizle
+        banner.style.display = 'none';
+    });
+});
+
+
+</script>
+
+<!-- Note Add -->
+<script>
+   document.querySelectorAll('.collapsible').forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.toggle('active');
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
+
+  </script>
+
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

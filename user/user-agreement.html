@@ -1,0 +1,145 @@
+<?php
+session_start()
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>User Agreement - Miamo Note</title>
+    <link rel="stylesheet" href="../assets/css/user.css">
+   <link rel="shortcut icon" href="../assets/image/logo.png" type="image/x-icon">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6746070536404496"
+     crossorigin="anonymous"></script>
+   
+    
+      <!-- Seo -->
+      <meta name="description" content="Information about our user agreement and our application.">
+     <meta name="keywords" content="Note, Not Uygulaması, Çevrimiçi not al">
+     <meta name="author" content="mymiamo.net">
+     
+     <!-- Open Graph Meta Tags (Facebook, LinkedIn, vb.) -->
+     <meta property="og:title" content="Miamo Note | User Agreement ">
+     <meta property="og:description" content="Information about our user agreement and our application.">
+     <meta property="og:image" content="https://miamonote.com/assets/image/logo.png">
+     <meta property="og:url" content="https://miamonote.com">
+     <meta property="og:type" content="website">
+     
+     <!-- Twitter Card Meta Tags -->
+     <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:title" content="Miamo Note | User Agreement ">
+     <meta name="twitter:description" content="Learn more about our User Agreement and the features of our application.">
+     <meta name="twitter:image" content="https://miamonote.com/assets/image/logo.png">
+     <meta name="twitter:site" content="@miamo_26">
+
+     <link rel="canonical" href="https://miamonote.com/user/user-agreement">
+     
+     <!-- Favicon -->
+     <link rel="icon" href="../assets/image/logo.png" type="image/x-icon">
+</head>
+<body>
+    <?php require './menu.html'; ?>
+
+    
+    <main class="box">
+        <a class="goback" href="javascript:history.back()"><i class="bi bi-chevron-left"></i></a>
+      <button class="button" onclick="toggleLanguage()"><i class="bi bi-translate"></i> </button>
+    
+    <div id="tr">
+        <h1>Miamo Note Üyelik Şartları</h1>
+        <p>Bu şartları kabul ederek kayıt işlemini tamamlamış olursunuz. Eğer şartları kabul etmiyorsanız, hesap oluşturamazsınız. Hesabınızı oluşturmadıysanız, bu <a href="https://miamonote.com/app/account/account-remove">link</a> üzerinden hesabınızı silebilirsiniz.</p>
+        
+        <div class="section">
+            <h2>1. Miamo Note Güvenlik ve Üyelik Politikası</h2>
+            <p>Miamo Note, mymiamo.net tarafından geliştirilmiş bir not alma uygulamasıdır. Hesabınız, kişisel verilerinizin korunması amacıyla şifrelenir ve yalnızca yazılımımız tarafından çözülür ve size hizmet verir. Yazdığınız kişisel notlar ve başlıkları da şifrelenir ve korunur. Bu şifre, hesabınızın kimliği ile eşleştirilir; bu nedenle yalnızca siz giriş yaptığınızda şifre çözümlenir ve notlarınızı okumanızı sağlar. Üçüncü şahıslar, rasgele yazı ve sayılardan oluşan bir şifre görür ve böylece notlarınız güvenli bir şekilde korunur. Hesabınızı oluştururken şifreler de şifrelenir; yöneticilerimiz bile giriş yapamaz.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Not İçerikleri ve Müdahale Edilebilirlik</h2>
+            <p>Politikamız gereği notlarınızı üçüncü şahıslar görüntüleyemez veya silemez. Yazdığınız notlar kullanıcı sorumluluğundadır ve mymiamo.net veya miamonote.com sorumluluğunda değildir.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Silinen Notların Geri Getirilmesi</h2>
+            <p>Notlarınızın silinmesi anında gerçekleşir ve geri getirilmesi mümkün değildir. İstemsiz silinmenin önüne geçmek için "Silmek istediğinize emin misiniz?" uyarısı verilir ve silme işlemi gerçekleştiğinde verilerimizden (veritabanı) silinir.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Kişisel Verilerin Korunması</h2>
+            <p>Türkiye’de Kişisel Verilerin Korunması Kanunu uyarınca, kayıt olurken sizden e-posta adresinizi alırız. Bu e-posta adresi, şifre sıfırlama talebiniz ve sizin rızanız doğrultusunda pazarlama e-postaları ve bilgilendirmeler için kullanılır.</p>
+        </div>
+
+        <div class="section">
+            <h2>5. Not Nasıl Paylaşılır veya Herkesin Görmesini Sağlarım</h2>
+            <p>Güvenlik nedenleri ve politikamız gereği, kişisel notlarınızı herkesle paylaşmanız mümkün değildir. Ancak paylaşmak isterseniz, hesap bilgilerinizi paylaşmanız gerekir. Miamo Note bu seçeneği önermez ve hesap sorumluluğu size aittir.</p>
+        </div>
+
+        <div class="section">
+            <h2>6. Kullandığımız Çerezler ve Nedenleri</h2>
+            <p>Miamo Note, sizi hatırlamak ve kendini geliştirmek için çerezler kullanır. Çerezler hakkında detaylı bilgi için Gizlilik Politikamızı ziyaret edebilirsiniz.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. Hesabınızın İmha (Silme) Aşaması Nasıl İşler</h2>
+            <p>Hesabınızı silme işlemini account sayfasından başlatabilirsiniz. Silme işlemi aşamaları şu şekildedir: E-posta adresinize doğrulama kodu gönderilir ve şifreniz istenir. Bu aşamaları doğru şekilde geçtiğinizde, hesabınız kalıcı olarak silinir.</p>
+        </div>
+    </div>
+
+    <div id="eng" style="display: none;">
+        <h1>Miamo Note Membership Terms</h1>
+        <p>By registering, you accept these terms. If you do not accept them, you will not be able to create an account. If you have not created an account, you can delete it using this <a href="./account-remove">link</a>.</p>
+        
+        <div class="section">
+            <h2>1. Miamo Note Security and Membership Policy</h2>
+            <p>Miamo Note is a note-taking application developed by mymiamo.net. Your account is encrypted to protect your personal data and is only decrypted by our software to provide you with services. Your personal notes and titles are also encrypted and protected. This encryption is associated with your account’s identity; therefore, only when you log in, the encryption is decrypted by our software, allowing us to read your notes. Third parties see a randomly generated combination of letters and numbers, ensuring that your notes are securely protected. Your passwords are also encrypted during account creation; even our administrators cannot access them.</p>
+        </div>
+    
+        <div class="section">
+            <h2>2. Note Content and Accessibility</h2>
+            <p>According to our policy, we cannot view or delete your notes as a third party. The responsibility for the notes you write lies with you. mymiamo.net and miamonote.com are not responsible for your notes.</p>
+        </div>
+    
+        <div class="section">
+            <h2>3. Restoring Deleted Notes</h2>
+            <p>Deletion of your notes occurs instantaneously and cannot be undone. To prevent accidental deletions, you will receive a confirmation prompt asking if you are sure you want to delete. Once deleted, the data is removed from our database.</p>
+        </div>
+    
+        <div class="section">
+            <h2>4. How to Share Notes or Make Them Visible to Everyone</h2>
+            <p>For security reasons and due to our policy, it is not possible to share personal notes with everyone. However, if you wish to share them, you would need to share your account information. Miamo Note does not recommend this option, and the responsibility for the account lies with you.</p>
+        </div>
+    
+        <div class="section">
+            <h2>5. Cookies We Use and Their Purpose</h2>
+            <p>Miamo Note uses cookies to remember you and improve its functionality. For detailed information about these cookies, please visit our Privacy Policy.</p>
+        </div>
+    
+        <div class="section">
+            <h2>6. How to Permanently Delete Your Account</h2>
+            <p>You can initiate the account deletion process from the account page. The deletion process is as follows: a verification code is sent to your email address, and you will be asked for your password. If you successfully complete these steps, your account will be permanently deleted.</p>
+        </div>
+
+        <div class="section">
+          <h2>7. Personal Data Protection</h2>
+          <p>In accordance with the Personal Data Protection Law in Turkey, we collect your email address when you register. This email address is used for password reset requests and, with your consent, for marketing emails and notifications.</p>
+      </div>
+    </main>
+
+    <script>
+        function toggleLanguage() {
+            var trDiv = document.getElementById('tr');
+            var engDiv = document.getElementById('eng');
+            if (trDiv.style.display === 'none') {
+                trDiv.style.display = 'block';
+                engDiv.style.display = 'none';
+            } else {
+                trDiv.style.display = 'none';
+                engDiv.style.display = 'block';
+            }
+        }
+    </script>
+    </div>
+    <?php require './footer.html'; ?>
+</body>
+</html>
