@@ -1,2 +1,3 @@
 # miamo-note-old
-Miamo Note Old Version
+
+Config.php içindekileri ve "key" yazan yerleri kullandıktan sonra kullanabilirsiniz.
